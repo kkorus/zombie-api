@@ -16,6 +16,8 @@ async function main() {
         .build();
     const document = SwaggerModule.createDocument(app, options);
     SwaggerModule.setup('/docs', app, document);
-    await app.listen(3000);
+
+    const port = process.env.PORT || 3000;
+    await app.listen(port);
 }
 main();
