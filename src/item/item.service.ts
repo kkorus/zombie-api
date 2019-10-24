@@ -1,9 +1,9 @@
-declare var require: any;
 import { Injectable } from "@nestjs/common";
 import { ItemDto } from "./dto/item.dto";
 import { RateDto } from "./dto/rate.dto";
 import { TotalValueDto } from "./dto/totalvalue.dto";
-const fetch = require("node-fetch");
+import { ClockService } from "../shared/clock.service";
+import { FetchService } from "../shared/fetch.services";
 
 @Injectable()
 export class ItemService {
@@ -16,11 +16,15 @@ export class ItemService {
     private itemsURL = "https://zombie-items-api.herokuapp.com/api/items";
     private ratesURL = "http://api.nbp.pl/api/exchangerates/tables/C/today/";
 
+    constructor(
+        private readonly clockService: ClockService,
+        private readonly fetchService: FetchService
+    ) { }
+
     async getItems(): Promise<ItemDto[]> {
-        const currentTime = Date.now();
+        const currentTime = this.clockService.getCurrentTime();
         if (!this.timestampItems || this.isDayDiff(currentTime, this.timestampItems)) {
-            const response = await fetch(this.itemsURL);
-            const result = await response.json();
+            const result = await this.fetchService.fetch(this.itemsURL);
 
             this.timestampItems = result.timestamp;
             this.cachedItems = result.items;
@@ -31,10 +35,9 @@ export class ItemService {
     }
 
     async getRates(): Promise<RateDto[]> {
-        const currentTime = Date.now();
+        const currentTime = this.clockService.getCurrentTime();
         if (!this.timestampRates || this.isDayDiff(currentTime, this.timestampRates)) {
-            const response = await fetch(this.ratesURL);
-            const result = await response.json();
+            const result = await this.fetchService.fetch(this.ratesURL);
 
             this.timestampRates = new Date(result[0].effectiveDate).getTime();
             this.cachedRates = result[0].rates;

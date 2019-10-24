@@ -4,9 +4,10 @@ import { ZombieService } from './zombie.service.';
 import { ZombieEntity, ZombieItemEntity } from './zombie.entity';
 import { TypeOrmModule } from '@nestjs/typeorm';
 import { ItemModule } from '../item/item.module';
+import { SharedModule } from '../shared/shared.module';
 
 @Module({
-    imports: [TypeOrmModule.forFeature([ZombieEntity, ZombieItemEntity]), ItemModule],
+    imports: [TypeOrmModule.forFeature([ZombieEntity, ZombieItemEntity]), ItemModule, SharedModule],
     controllers: [ZombieController],
     providers: [ZombieService],
 })

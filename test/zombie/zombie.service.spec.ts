@@ -9,6 +9,8 @@ import { CreateZombieDto } from "../../src/zombie/dto/create-zombie.dto";
 import { HttpException, HttpStatus } from "@nestjs/common";
 import { ItemDto } from "../../src/item/dto/item.dto";
 import { TotalValueDto } from "../../src/item/dto/totalvalue.dto";
+import { ClockService } from "../../src/shared/clock.service";
+import { FetchService } from "../../src/shared/fetch.services";
 
 describe('ZombieService', () => {
     let module: TestingModule;
@@ -22,6 +24,8 @@ describe('ZombieService', () => {
             providers: [
                 ZombieService,
                 ItemService,
+                ClockService,
+                FetchService,
                 {
                     provide: getRepositoryToken(ZombieEntity),
                     useClass: Repository,
