@@ -1,3 +1,4 @@
+declare var require: any;
 import { Injectable } from "@nestjs/common";
 import { ItemDto } from "./dto/item.dto";
 import { RateDto } from "./dto/rate.dto";
