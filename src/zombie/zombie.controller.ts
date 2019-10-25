@@ -29,14 +29,14 @@ export class ZombieController {
     }
 
     @ApiOperation({ title: 'Delete zombie' })
-    @ApiResponse({ status: 201, description: 'The zombie has been successfully deleted.' })
+    @ApiResponse({ status: 200, description: 'The zombie has been successfully deleted.' })
     @Delete(':id')
-    deleteZombie(@Param() params) {
-        return this.zombieService.delete(params.id);
+    deleteZombie(@Param('id') id: number) {
+        return this.zombieService.delete(id);
     }
 
     @ApiOperation({ title: 'Get zombie items' })
-    @ApiResponse({ status: 201, description: 'Return zombie itmes.' })
+    @ApiResponse({ status: 200, description: 'Return zombie itmes.' })
     @Get(':id/items')
     getItems(@Param('id') id: number) {
         return this.zombieService.getItems(id);
@@ -50,14 +50,14 @@ export class ZombieController {
     }
 
     @ApiOperation({ title: 'Delete zombie item' })
-    @ApiResponse({ status: 201, description: 'The zombie item has been successfully deleted.' })
+    @ApiResponse({ status: 200, description: 'The zombie item has been successfully deleted.' })
     @Delete(':id/items/:itemId')
     deleteItem(@Param() params) {
         return this.zombieService.deleteItem(params.id, params.itemId);
     }
 
     @ApiOperation({ title: 'Get items total value' })
-    @ApiResponse({ status: 201, description: 'Return total value of zombie items.' })
+    @ApiResponse({ status: 200, description: 'Return total value of zombie items.' })
     @Get(':id/items/total-value')
     getItemsTotalValue(@Param('id') id: number) {
         return this.zombieService.getItemsTotalValue(id);

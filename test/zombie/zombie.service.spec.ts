@@ -2,7 +2,7 @@ import { Test } from "@nestjs/testing";
 import { TestingModule } from "@nestjs/testing";
 import { ZombieService } from "../../src/zombie/zombie.service.";
 import { Repository } from "typeorm";
-import { ZombieEntity, ZombieItemEntity } from "../../src/zombie/zombie.entity";
+import { ZombieEntity } from "../../src/zombie/entity/zombie.entity";
 import { getRepositoryToken } from "@nestjs/typeorm";
 import { ItemService } from "../../src/item/item.service";
 import { CreateZombieDto } from "../../src/zombie/dto/create-zombie.dto";
@@ -11,6 +11,7 @@ import { ItemDto } from "../../src/item/dto/item.dto";
 import { TotalValueDto } from "../../src/item/dto/totalvalue.dto";
 import { ClockService } from "../../src/shared/clock.service";
 import { FetchService } from "../../src/shared/fetch.services";
+import { ZombieItemEntity } from "../../src/zombie/entity/zombie-item.entity";
 
 describe('ZombieService', () => {
     let module: TestingModule;
