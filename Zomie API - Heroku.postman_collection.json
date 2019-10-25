@@ -1,0 +1,222 @@
+{
+	"info": {
+		"_postman_id": "262aa3da-5afd-447a-8a92-ff0097d10a0e",
+		"name": "Zomie API - Heroku",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "GET /zombies",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "https://still-plains-67289.herokuapp.com/api/zombies",
+					"protocol": "https",
+					"host": [
+						"still-plains-67289",
+						"herokuapp",
+						"com"
+					],
+					"path": [
+						"api",
+						"zombies"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "GET /zombies/:id",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "https://still-plains-67289.herokuapp.com/api/zombies/5",
+					"protocol": "https",
+					"host": [
+						"still-plains-67289",
+						"herokuapp",
+						"com"
+					],
+					"path": [
+						"api",
+						"zombies",
+						"5"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "POST /zombies",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"name": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n\t\"name\": \"Frankie The Zombie\"\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "https://still-plains-67289.herokuapp.com/api/zombies",
+					"protocol": "https",
+					"host": [
+						"still-plains-67289",
+						"herokuapp",
+						"com"
+					],
+					"path": [
+						"api",
+						"zombies"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "DELETE /zombies/:id",
+			"request": {
+				"method": "DELETE",
+				"header": [],
+				"url": {
+					"raw": "https://still-plains-67289.herokuapp.com/api/zombies/1",
+					"protocol": "https",
+					"host": [
+						"still-plains-67289",
+						"herokuapp",
+						"com"
+					],
+					"path": [
+						"api",
+						"zombies",
+						"1"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "GET /zombies/:id/items",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "https://still-plains-67289.herokuapp.com/api/zombies/3/items",
+					"protocol": "https",
+					"host": [
+						"still-plains-67289",
+						"herokuapp",
+						"com"
+					],
+					"path": [
+						"api",
+						"zombies",
+						"3",
+						"items"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "POST /zombies/:id/items",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"name": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n\t\"itemId\": 3\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "https://still-plains-67289.herokuapp.com/api/zombies/1/items",
+					"protocol": "https",
+					"host": [
+						"still-plains-67289",
+						"herokuapp",
+						"com"
+					],
+					"path": [
+						"api",
+						"zombies",
+						"1",
+						"items"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "DELETE /zombies/:id/items/:id",
+			"request": {
+				"method": "DELETE",
+				"header": [],
+				"url": {
+					"raw": "https://still-plains-67289.herokuapp.com/api/zombies/1/items/1",
+					"protocol": "https",
+					"host": [
+						"still-plains-67289",
+						"herokuapp",
+						"com"
+					],
+					"path": [
+						"api",
+						"zombies",
+						"1",
+						"items",
+						"1"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "GET /zombies/:id/items/total-value",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "https://still-plains-67289.herokuapp.com/api/zombies/5/items/total-value",
+					"protocol": "https",
+					"host": [
+						"still-plains-67289",
+						"herokuapp",
+						"com"
+					],
+					"path": [
+						"api",
+						"zombies",
+						"5",
+						"items",
+						"total-value"
+					]
+				}
+			},
+			"response": []
+		}
+	],
+	"protocolProfileBehavior": {}
+}
